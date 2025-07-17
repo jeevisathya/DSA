@@ -1,0 +1,101 @@
+Linear Search:
+
+import java.util.*;
+import java.io.*;
+
+public class MyClass {
+  public static void main(String args[]) {
+    
+    int nums[] = {5,6,7,8,9,10};
+    int target = 9;
+    int c=0;
+    
+    for(int i=0; i<nums.length; i++){
+        if(target == nums[i]){
+            c++;
+            System.out.print(i);
+        }
+    }
+    
+     if(c==0)
+       System.out.print(-1);
+    
+  }
+}
+
+Binary Search:
+
+import java.util.*;
+import java.io.*;
+
+public class MyClass {
+  public static void main(String args[]) {
+    
+    int nums[] = {5,6,7,8,9,10,11};
+    int target = 6;
+    
+    int first = 0;
+    int last = (nums.length) - 1;
+    
+    int c=0;
+    
+    while(first<=last){
+        
+        int mid = (first+last)/2;
+        
+        if(target == nums[mid]){
+              c++;
+            System.out.print(target);
+            break;
+        }
+        else if(target > nums[mid])
+            first =   mid + 1;
+        else
+        last = mid - 1;
+    }
+    if(c==0)
+           System.out.print(-1);
+  }
+}
+
+Binary Search - Implementing by using methods:
+
+import java.util.*;
+import java.io.*;
+
+public class MyClass {
+  public static void main(String args[]) {
+      
+       int nums[] = {5,6,7,8,9,10,11};
+       int target = 12;
+       
+       int result =  findelement(nums,target);
+      
+      if(result != -1){
+          System.out.print("Element found at the index of: "  + result);
+      }else{
+          System.out.print("There is no target element present in the array");
+      }
+  }
+    
+       
+public static int findelement(int nums[], int target){
+          int first = 0;
+          int last = (nums.length) - 1;
+          
+    while(first<=last){
+        
+        int mid = (first+last)/2;
+        
+        if(target == nums[mid]){
+           return mid;
+        }
+        else if(target > nums[mid])
+            first =   mid + 1;
+        else
+            last = mid - 1;
+    }
+    
+    return -1;
+  }
+}
